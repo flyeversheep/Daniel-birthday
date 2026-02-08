@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐾 Daniel's 6th Birthday Party - PAW Patrol Theme!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #1e88e5 0%, #42a5f5 50%, #90caf9 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .paw-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M30 40c-5 0-10 5-10 12s5 12 10 12 10-5 10-12-5-12-10-12zm40 0c-5 0-10 5-10 12s5 12 10 12 10-5 10-12-5-12-10-12zm-20-15c-5 0-10 5-10 12s5 12 10 12 10-5 10-12-5-12-10-12z' fill='%23fff'/%3E%3Ccircle cx='50' cy='70' r='15' fill='%23fff'/%3E%3C/svg%3E");
+            background-size: 100px 100px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(145deg, #ff6f00 0%, #ff8f00 50%, #ffa000 100%);
+            border-radius: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(180deg); }
+        }
+
+        .badge {
+            display: inline-block;
+            background: #e53935;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 15px rgba(229,57,53,0.4);
+        }
+
+        h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 3em;
+            color: white;
+            text-shadow: 3px 3px 0 #e65100, 6px 6px 0 rgba(0,0,0,0.2);
+            margin-bottom: 10px;
+            animation: bounce 1s ease infinite alternate;
+        }
+
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-5px); }
+        }
+
+        .age-highlight {
+            display: inline-block;
+            background: linear-gradient(145deg, #fdd835, #fbc02d);
+            color: #e65100;
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-top: 15px;
+            box-shadow: 0 8px 20px rgba(251,192,45,0.4);
+        }
+
+        .pups-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+
+        .pup {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            animation: float 2s ease-in-out infinite;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .pup:nth-child(1) { background: #2196f3; animation-delay: 0s; }
+        .pup:nth-child(2) { background: #f44336; animation-delay: 0.2s; }
+        .pup:nth-child(3) { background: #ffeb3b; animation-delay: 0.4s; }
+        .pup:nth-child(4) { background: #ff9800; animation-delay: 0.6s; }
+        .pup:nth-child(5) { background: #4caf50; animation-delay: 0.8s; }
+        .pup:nth-child(6) { background: #e91e63; animation-delay: 1s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            position: relative;
+        }
+
+        .info-card::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 5%;
+            right: 5%;
+            height: 20px;
+            background: rgba(0,0,0,0.1);
+            border-radius: 50%;
+            filter: blur(10px);
+        }
+
+        .info-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.8em;
+            color: #e53935;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .icon-date { background: #e3f2fd; }
+        .icon-time { background: #fff3e0; }
+        .icon-location { background: #e8f5e9; }
+
+        .info-content h3 {
+            color: #333;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .info-content p {
+            color: #666;
+            font-size: 1em;
+        }
+
+        .rsvp-form {
+            background: linear-gradient(145deg, #fff8e1 0%, #ffecb3 100%);
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .form-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.8em;
+            color: #f57c00;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            color: #e65100;
+            margin-bottom: 8px;
+            font-size: 1em;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border: 3px solid #ffe0b2;
+            border-radius: 15px;
+            font-size: 1em;
+            font-family: 'Nunito', sans-serif;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #ff9800;
+            box-shadow: 0 0 0 4px rgba(255,152,0,0.2);
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .radio-option {
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .radio-option input[type="radio"] {
+            display: none;
+        }
+
+        .radio-option label {
+            display: block;
+            padding: 15px 20px;
+            background: white;
+            border: 3px solid #ffe0b2;
+            border-radius: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 0;
+        }
+
+        .radio-option input[type="radio"]:checked + label {
+            background: #4caf50;
+            border-color: #4caf50;
+            color: white;
+        }
+
+        .radio-option label:hover {
+            border-color: #ff9800;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(145deg, #4caf50, #45a049);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.3em;
+            font-weight: bold;
+            font-family: 'Fredoka One', cursive;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 8px 20px rgba(76,175,80,0.4);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(76,175,80,0.5);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .success-message {
+            display: none;
+            background: linear-gradient(145deg, #c8e6c9, #a5d6a7);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: popIn 0.5s ease;
+        }
+
+        @keyframes popIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .success-message h2 {
+            font-family: 'Fredoka One', cursive;
+            color: #2e7d32;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .success-message p {
+            color: #388e3c;
+            font-size: 1.1em;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: rgba(255,255,255,0.9);
+            font-size: 0.9em;
+        }
+
+        .footer a {
+            color: #ffeb3b;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .pup {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+            
+            .info-card,
+            .rsvp-form {
+                padding: 20px;
+            }
+        }
+
+        .balloon {
+            position: fixed;
+            font-size: 30px;
+            animation: rise 15s linear infinite;
+            opacity: 0.6;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes rise {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="paw-pattern"></div>
+    
+    <!-- Floating balloons -->
+    <div class="balloon" style="left: 10%; animation-delay: 0s;">🎈</div>
+    <div class="balloon" style="left: 30%; animation-delay: 3s;">🎈</div>
+    <div class="balloon" style="left: 50%; animation-delay: 6s;">🎈</div>
+    <div class="balloon" style="left: 70%; animation-delay: 9s;">🎈</div>
+    <div class="balloon" style="left: 90%; animation-delay: 12s;">🎈</div>
+
+    <div class="container">
+        <div class="header">
+            <span class="badge">🎉 You're Invited! 🎉</span>
+            <h1>Daniel's Birthday Party!</h1>
+            <div class="age-highlight">🎂 Turning 6! 🎂</div>
+            
+            <div class="pups-container">
+                <div class="pup" title="Chase">🚔</div>
+                <div class="pup" title="Marshall">🚒</div>
+                <div class="pup" title="Rubble">🚜</div>
+                <div class="pup" title="Zuma">🌊</div>
+                <div class="pup" title="Rocky">♻️</div>
+                <div class="pup" title="Skye">🚁</div>
+            </div>
+            
+            <p style="color: white; font-size: 1.2em; margin-top: 10px; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">
+                Join us for a PAW-some celebration!
+            </p>
+        </div>
+
+        <div class="info-card">
+            <h2 class="info-title">📋 Party Details</h2>
+            
+            <div class="info-item">
+                <div class="info-icon icon-date">📅</div>
+                <div class="info-content">
+                    <h3>Date</h3>
+                    <p>Sunday, February 22, 2026</p>
+                </div>
+            </div>
+            
+            <div class="info-item">
+                <div class="info-icon icon-time">⏰</div>
+                <div class="info-content">
+                    <h3>Time</h3>
+                    <p>3:30 PM – 5:30 PM</p>
+                </div>
+            </div>
+            
+            <div class="info-item">
+                <div class="info-icon icon-location">📍</div>
+                <div class="info-content">
+                    <h3>Location</h3>
+                    <p><strong>Nick's Magnificent</strong><br>
+                    1430 NW Mall St<br>
+                    Issaquah, WA 98027</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="rsvp-form">
+            <h2 class="form-title">🐾 RSVP Here! 🐾</h2>
+            
+            <form id="rsvpForm" action="https://formspree.io/f/xwvnkaop" method="POST">
+                <div class="form-group">
+                    <label for="childName">Child's Name *</label>
+                    <input type="text" id="childName" name="childName" required placeholder="Who is coming to the party?">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required placeholder="your@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label>Will you be joining us? *</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="yes" name="attending" value="Yes" required>
+                            <label for="yes">🎉 Yes, we'll be there!</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="no" name="attending" value="No">
+                            <label for="no">😢 Sorry, can't make it</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="guests">Number of Guests (including child)</label>
+                    <select id="guests" name="guests">
+                        <option value="1">1 guest</option>
+                        <option value="2" selected>2 guests</option>
+                        <option value="3">3 guests</option>
+                        <option value="4">4 guests</option>
+                        <option value="5">5 guests</option>
+                        <option value="more">More than 5 (please specify in notes)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="dietary">Dietary Restrictions or Allergies</label>
+                    <textarea id="dietary" name="dietary" placeholder="Let us know about any food allergies or dietary needs..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Additional Notes</label>
+                    <textarea id="notes" name="notes" placeholder="Anything else you'd like us to know?"></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    🚀 Send RSVP! 🚀
+                </button>
+            </form>
+
+            <div class="success-message" id="successMessage">
+                <h2>🎊 RSVP Received! 🎊</h2>
+                <p>Thank you! We can't wait to celebrate with you!<br>
+                A confirmation email has been sent to you.</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>🐾 Questions? Contact the party planners! 🐾</p>
+            <p style="margin-top: 10px; font-size: 0.8em;">
+                This is not an official PAW Patrol event. Just a fun theme party!
+            </p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            
+            // Submit to Formspree
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    // Show success message
+                    document.getElementById('successMessage').classList.add('show');
+                    this.reset();
+                    
+                    // Scroll to success message
+                    document.getElementById('successMessage').scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'center' 
+                    });
+                } else {
+                    alert('Oops! Something went wrong. Please try again.');
+                }
+            }).catch(error => {
+                alert('Oops! Something went wrong. Please try again.');
+            });
+        });
+
+        // Add some fun confetti on load
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.querySelector('.header').style.animation = 'none';
+                document.querySelector('.header').offsetHeight; // Trigger reflow
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

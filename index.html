@@ -116,23 +116,99 @@
         }
 
         .pup {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
+            font-size: 32px;
             animation: float 2s ease-in-out infinite;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 
+                0 5px 15px rgba(0,0,0,0.3),
+                inset 0 -5px 10px rgba(0,0,0,0.2),
+                inset 0 5px 10px rgba(255,255,255,0.3);
+            border: 4px solid rgba(255,255,255,0.8);
+            position: relative;
+            overflow: hidden;
         }
 
-        .pup:nth-child(1) { background: #2196f3; animation-delay: 0s; }
-        .pup:nth-child(2) { background: #f44336; animation-delay: 0.2s; }
-        .pup:nth-child(3) { background: #ffeb3b; animation-delay: 0.4s; }
-        .pup:nth-child(4) { background: #ff9800; animation-delay: 0.6s; }
-        .pup:nth-child(5) { background: #4caf50; animation-delay: 0.8s; }
-        .pup:nth-child(6) { background: #e91e63; animation-delay: 1s; }
+        .pup::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 50%);
+            border-radius: 50%;
+        }
+
+        /* Chase - Police Pup - Blue */
+        .pup:nth-child(1) { 
+            background: linear-gradient(145deg, #1976d2, #0d47a1);
+            animation-delay: 0s; 
+        }
+        .pup:nth-child(1)::after {
+            content: '🚓';
+            font-size: 32px;
+            filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.3));
+        }
+
+        /* Marshall - Fire Pup - Red */
+        .pup:nth-child(2) { 
+            background: linear-gradient(145deg, #e53935, #b71c1c);
+            animation-delay: 0.2s; 
+        }
+        .pup:nth-child(2)::after {
+            content: '🚒';
+            font-size: 32px;
+            filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.3));
+        }
+
+        /* Rubble - Construction Pup - Yellow */
+        .pup:nth-child(3) { 
+            background: linear-gradient(145deg, #fdd835, #f9a825);
+            animation-delay: 0.4s; 
+        }
+        .pup:nth-child(3)::after {
+            content: '🚜';
+            font-size: 32px;
+            filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.3));
+        }
+
+        /* Zuma - Water Pup - Orange */
+        .pup:nth-child(4) { 
+            background: linear-gradient(145deg, #ff9800, #e65100);
+            animation-delay: 0.6s; 
+        }
+        .pup:nth-child(4)::after {
+            content: '🚤';
+            font-size: 32px;
+            filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.3));
+        }
+
+        /* Rocky - Recycling Pup - Green */
+        .pup:nth-child(5) { 
+            background: linear-gradient(145deg, #4caf50, #2e7d32);
+            animation-delay: 0.8s; 
+        }
+        .pup:nth-child(5)::after {
+            content: '🔧';
+            font-size: 32px;
+            filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.3));
+        }
+
+        /* Skye - Air Pup - Pink */
+        .pup:nth-child(6) { 
+            background: linear-gradient(145deg, #e91e63, #c2185b);
+            animation-delay: 1s; 
+        }
+        .pup:nth-child(6)::after {
+            content: '🚁';
+            font-size: 32px;
+            filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.3));
+        }
 
         @keyframes float {
             0%, 100% { transform: translateY(0); }
@@ -440,12 +516,12 @@
             <div class="age-highlight">🎂 Turning 6! 🎂</div>
             
             <div class="pups-container">
-                <div class="pup" title="Chase">🚔</div>
-                <div class="pup" title="Marshall">🚒</div>
-                <div class="pup" title="Rubble">🚜</div>
-                <div class="pup" title="Zuma">🌊</div>
-                <div class="pup" title="Rocky">♻️</div>
-                <div class="pup" title="Skye">🚁</div>
+                <div class="pup" title="Chase"></div>
+                <div class="pup" title="Marshall"></div>
+                <div class="pup" title="Rubble"></div>
+                <div class="pup" title="Zuma"></div>
+                <div class="pup" title="Rocky"></div>
+                <div class="pup" title="Skye"></div>
             </div>
             
             <p style="color: white; font-size: 1.2em; margin-top: 10px; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">
